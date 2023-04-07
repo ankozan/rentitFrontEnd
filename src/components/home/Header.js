@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 function Header() {
     return (
         <header>
-            <h1>RENTTOOLS</h1>
-            <div className="search-box">
+            <Link to="/">
+                <h1 style={{ color: "white" }}>RENTTOOLS</h1>
+            </Link>            <div className="search-box">
                 <input type="text" placeholder="Search tools..." className="search-input" />
                 <FaUserCircle className="icon" size={32} />
                 <FaShoppingCart className="icon" size={32} />

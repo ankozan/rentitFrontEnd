@@ -13,6 +13,22 @@ function ToolItem() {
     const [endDate, setEndDate] = useState(null);
     const [deliveryMethod, setDeliveryMethod] = useState("pickup");
 
+    const handleRent = () => {
+        console.log(startDate);
+        console.log(endDate);
+        console.log(deliveryMethod);
+        console.log(tool.toolId);
+
+        //Make an HTTP request to the server with the parameters
+        fetch(`http://localhost:8080/api/v1/tools/${tool.toolId}/availability`, {
+            method: 'PUT'
+        })
+            .then(response => {
+                // Handle the response here
+            })
+            .catch(error => console.error(error));
+    };
+
     return (
         <div className="container">
             <Header />
@@ -35,7 +51,7 @@ function ToolItem() {
                         <option value="delivery">Delivery</option>
                     </select>
                 </div>
-                <button className="rent-button">Rent</button>
+                <button className="rent-button" onClick={handleRent}>Rent</button>
             </div>
 
         </div>
